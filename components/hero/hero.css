@@ -1,0 +1,24 @@
+@media screen and (min-width: 1024px) {
+  .hero-section:hover .hero-text:after {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  .hero-section:hover button {
+    opacity: 1;
+    margin-bottom: 40px;
+    display: block;
+  }
+
+  .hero-section:hover .hero-text {
+    padding-bottom: 0px;
+  }
+
+  .hero-section:hover hr,
+  .hero-section:hover p {
+    display: block;
+  }
+}
