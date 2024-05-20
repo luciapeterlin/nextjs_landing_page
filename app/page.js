@@ -1,11 +1,15 @@
 import Hero from '@/components/hero/hero';
 import Cards from '@/components/cards';
+import { getData } from '@/utils/getData';
 
-export default function Home() {
+export default async function Home() {
+
+  const data = await getData();
+
   return (
     <>
       <Hero />
-      <Cards />
+      <Cards data={data} />
     </>
   );
 }

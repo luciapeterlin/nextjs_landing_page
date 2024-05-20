@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import Carousel from '@/components/carousel/carousel';
 
-export default function Cards() {
+export default function Cards({ data }) {
   	return (
   		<section className="bg-gradient-to-r from-gray-gradient from-50% to-white to-50% mt-2.5 py-10 flex flex-col lg:flex-row lg:pt-24 lg:pb-24 lg:pl-32 lg:mt-0">
   			<div className="px-4 mb-10 lg:w-[40%] xl:w-[30%] lg:mr-2 lg:px-0 lg:pt-0 xl:pt-20">
@@ -14,7 +13,7 @@ export default function Cards() {
   				</a>
   			</div>
   			<div className="pl-4 lg:w-[60%] xl:w-[70%]">
-  				<Carousel />
+  				<Carousel data={data} />
   			</div>
   		</section>
 	)

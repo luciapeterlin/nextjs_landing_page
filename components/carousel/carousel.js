@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image'
 import 'swiper/css';
@@ -8,25 +8,8 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import classes from '@/components/carousel/carousel.css';
 
-export default function Carousel() {
+export default function Carousel({ data }) {
 
-	const [slide, setSlide] = useState([]);
-
-	const getData = async () => { 
-		try {
-			const res = await fetch('https://jsonplaceholder.typicode.com/photos');
-		    const response = await res.json();
-		    const dataResponse = response.slice(0, 10)
-		    setSlide(dataResponse)
-		} catch (error) {
-			console.log('Error fetching data')
-		}
-	}
-
-	useEffect(() => {
-		getData();
-	}, []);
-	 
   	return (
   		<>
       		<Swiper
@@ -50,7 +33,7 @@ export default function Carousel() {
     				}
   				}}
       		>
-		    	{slide.map((slideInfo) => (
+		    	{data.map((slideInfo) => (
         			<SwiperSlide key={slideInfo.id}>
 		        		<Image src={slideInfo.thumbnailUrl} alt={slideInfo.title} width={388} height={36} className="block w-full rounded-lg"/>
 		            	<div className="mt-4 pt-4 leading-5 border-t-2 border-solid border-medium-gray-900 mb-16">
